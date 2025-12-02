@@ -9,11 +9,11 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(schema="movie", name ="film")
+@Table(schema = "movie", name = "payment")
 
 public class Payment {
     @Id
-    @Column(name= "payment_id")
+    @Column(name = "payment_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short id;
 

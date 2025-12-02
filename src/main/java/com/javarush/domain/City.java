@@ -7,12 +7,12 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(schema="movie", name ="city")
+@Table(schema = "movie", name = "city")
 public class City {
     @Id
-    @Column(name= "city_id")
+    @Column(name = "city_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Short id;
+    private Short id;
 
     private String city;
 

@@ -7,11 +7,11 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
-@Table(schema="movie", name ="actor")
+@Table(schema = "movie", name = "actor")
 public class Actor {
     @Id
-    @JoinColumn(name = "actor_id")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "actor_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short id;
 
     @Column(name = "first_name")
@@ -26,8 +26,8 @@ public class Actor {
 
     @ManyToMany
     @JoinTable(name = "film_actor",
-            joinColumns = @JoinColumn(name ="actor_id", referencedColumnName = "actor_id"),
-            inverseJoinColumns = @JoinColumn(name ="film_id", referencedColumnName = "film_id"))
+            joinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actor_id"),
+            inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"))
     private Set<Film> films;
 
     public Short getId() {

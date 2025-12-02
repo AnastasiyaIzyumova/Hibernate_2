@@ -13,12 +13,13 @@ public enum Feature {
     Feature(String value) {
         this.value = value;
     }
+
     public String getValue() {
         return value;
     }
 
     public static Feature getFeatureByValue(String value) {
-        if(isNull(value) || value.isEmpty()){
+        if (isNull(value) || value.isEmpty()) {
             return null;
         }
         Feature[] features = Feature.values();

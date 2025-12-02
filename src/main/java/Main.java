@@ -7,7 +7,11 @@ import org.hibernate.cfg.Environment;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.Year;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 public class Main {
     private final SessionFactory sessionFactory;
@@ -81,6 +85,42 @@ public class Main {
         main.customerReturnInventoryToStore();
 
         main.customerRentInventory(customer);
+
+        main.createNewFilm();
+    }
+
+    private void createNewFilm() {
+        try (Session session = sessionFactory.getCurrentSession()) {
+            session.beginTransaction();
+
+            Language language = languageDAO.getItems(0,20).stream().unordered().findAny().get();
+            List<Category> categories = categoryDAO.getItems(0,3);
+            List<Actor> actors = actorDAO.getItems(0,10);
+
+            Film film = new Film();
+            film.setActors(new HashSet<>(actors));
+            film.setLanguage(language);
+            film.setCategories(new HashSet<>(categories));
+            film.setRating(Rating.G);
+            film.setSpecialFeatures(Set.of(Feature.COMMENTARIES));
+            film.setTitle("Film Title");
+            film.setDescription("Film Description");
+            film.setRentalDuration((byte)11);
+            film.setOriginalLanguage(language);
+            film.setYear(Year.now());
+            film.setLength((short)123);
+            film.setRentalRate(BigDecimal.ONE);
+            film.setReplacementCost(BigDecimal.ONE);
+            filmDAO.save(film);
+
+            FilmText filmText = new FilmText();
+            filmText.setFilm(film);
+            filmText.setTitle("Film Title");
+            filmText.setDescription("Film Description");
+            filmText.setId(film.getId());
+            filmTextDAO.save(filmText);
+            session.getTransaction().commit();
+        }
     }
 
     private void customerRentInventory(Customer customer) {

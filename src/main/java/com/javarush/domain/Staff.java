@@ -35,7 +35,7 @@ public class Staff {
     private Store store;
 
     @Column(name = "active", columnDefinition = "BIT")
-    @Type(type="org.hibernate.type.NumericBooleanType")
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean active;
 
     private String username;

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.Type;
 
 @Entity
-@Table(schema = "movie", name="film_text")
+@Table(schema = "movie", name = "film_text")
 public class FilmText {
 
     @Id
@@ -18,7 +18,7 @@ public class FilmText {
     private String title;
 
     @Column(columnDefinition = "text")
-    @Type(type= "text")
+    @Type(type = "text")
     private String description;
 
     public Short getId() {

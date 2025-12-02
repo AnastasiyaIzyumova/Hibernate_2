@@ -9,6 +9,7 @@ public class RatingConverter implements AttributeConverter<Rating, String> {
     public String convertToDatabaseColumn(Rating rating) {
         return rating.getValue();
     }
+
     @Override
     public Rating convertToEntityAttribute(String dbData) {
         Rating[] values = Rating.values();

@@ -6,10 +6,10 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(schema="movie", name ="address")
+@Table(schema = "movie", name = "address")
 public class Address {
     @Id
-    @Column(name= "address_id")
+    @Column(name = "address_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short id;
 

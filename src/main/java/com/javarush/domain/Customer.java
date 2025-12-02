@@ -9,10 +9,10 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(schema="movie", name ="customer")
+@Table(schema = "movie", name = "customer")
 public class Customer {
     @Id
-    @Column(name= "customer_id")
+    @Column(name = "customer_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short id;
 
@@ -33,7 +33,7 @@ public class Customer {
     private Address address;
 
     @Column(name = "active", columnDefinition = "BIT")
-    @Type(type="org.hibernate.type.NumericBooleanType")
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean active;
 
     @Column(name = "create_date")
